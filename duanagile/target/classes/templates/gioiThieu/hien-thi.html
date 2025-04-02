@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #f8f9fa; }
+
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 30px;
+            background: white;
+            border-bottom: 2px solid #8B6F42;
+            position: relative;
+        }
+
+
+        .search-bar {
+            display: flex;
+            border: 1px solid #8B6F42;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 50%;
+            max-width: 400px;
+        }
+
+        .search-bar input {
+            padding: 8px;
+            border: none;
+            outline: none;
+            flex: 1;
+        }
+
+        .search-bar button {
+            background: #8B6F42;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        .cart-icon {
+            position: absolute;
+            right: 30px;
+            font-size: 24px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .cart-icon img {
+            width: 30px;
+        }
+
+        .cart-icon span {
+            position: absolute;
+            top: -5px;
+            right: -10px;
+            background: green;
+            color: white;
+            border-radius: 50%;
+            padding: 3px 8px;
+            font-size: 14px;
+        }
+
+
+        .menu-bar {
+            background: #8B6F42;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .menu-bar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 8px 12px;
+        }
+
+        .menu-bar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+
+        .featured-products {
+            text-align: center;
+            padding: 20px;
+        }
+
+
+        .contact-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: green;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .contact-btn:hover {
+            background: darkgreen;
+        }
+
+        .contact-btn img {
+            width: 20px;
+            height: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div class="header">
+    <div class="search-bar">
+        <input type="text" placeholder="Nhập từ khóa tìm kiếm...">
+        <button>🔍</button>
+    </div>
+
+    <a href="/gioHang/hien-thi" class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span>0</span>
+    </a>
+</div>
+
+<div class="menu-bar">
+    <a href="/menu/hien-thi">Trang chủ</a>
+    <a href="/gioiThieu/hien-thi">Giới thiệu</a>
+    <a href="/sanPham/hien-thi">Sản phẩm</a>
+    <a href="/huongDanDatHang/hien-thi">Hướng dẫn đặt hàng</a>
+    <a href="/kienThuc/hien-thi">Kiến thức phong thủy</a>
+    <a href="/lienHe/hien-thi">Liên hệ</a>
+</div>
+
+<div class="featured-products">
+    <h2>Giới thiệu</h2>
+</div>
+
+
+<a href="/lienHe/hien-thi" class="contact-btn">
+    <i class="fas fa-comment-dots"></i> Liên hệ
+</a>
+
+</body>
+</html>
