@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thống Kê Doanh Thu Theo Ngày</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fdfcf8;
+      font-family: 'Arial', sans-serif;
+    }
+
+    header {
+      background-color: #8B6F42;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      margin-top: 40px;
+    }
+
+    .btn-search {
+      background-color: #8B6F42;
+      color: white;
+    }
+
+    .btn-search:hover {
+      background-color: #6c5432;
+    }
+
+    table {
+      margin-top: 30px;
+    }
+
+    .total {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #8B6F42;
+      margin-top: 20px;
+      text-align: right;
+    }
+
+    footer {
+      background-color: #8B6F42;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h2>Thống Kê Doanh Thu Theo Khoảng Ngày</h2>
+</header>
+
+<div class="container">
+  <!-- Form tìm kiếm theo khoảng ngày -->
+  <form method="GET" action="/thong-ke/doanh-thu" class="row g-3 align-items-end">
+    <div class="col-md-5">
+      <label for="fromDate" class="form-label">Từ ngày:</label>
+      <input type="date" class="form-control" id="fromDate" name="fromDate" required>
+    </div>
+    <div class="col-md-5">
+      <label for="toDate" class="form-label">Đến ngày:</label>
+      <input type="date" class="form-control" id="toDate" name="toDate" required>
+    </div>
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-search w-100">Tìm kiếm</button>
+    </div>
+  </form>
+
+  <!-- Bảng kết quả -->
+  <table class="table table-bordered table-striped mt-5">
+    <thead class="table-light">
+    <tr>
+      <th>STT</th>
+      <th>Ngày đặt</th>
+      <th>Tên khách hàng</th>
+      <th>Sản phẩm</th>
+      <th>Số lượng</th>
+      <th>Giá</th>
+      <th>Thành tiền</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Dữ liệu đơn hàng sẽ được render ở đây -->
+    <!-- Ví dụ mẫu -->
+    <tr>
+      <td>1</td>
+      <td>2025-04-01</td>
+      <td>Nguyễn Văn A</td>
+      <td>Bàn gỗ sồi</td>
+      <td>1</td>
+      <td>4.500.000đ</td>
+      <td>4.500.000đ</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2025-04-02</td>
+      <td>Trần Thị B</td>
+      <td>Tủ gỗ đỏ</td>
+      <td>2</td>
+      <td>7.000.000đ</td>
+      <td>14.000.000đ</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Tổng doanh thu -->
+  <div class="total">
+    Tổng doanh thu: <span id="tongDoanhThu">18.500.000đ</span>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 Đồ Gỗ Phong Thủy | Liên hệ: dongophongthuy@example.com
+</footer>
+
+</body>
+</html>
