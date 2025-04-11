@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f1ea;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #8B6F42;
+            margin-bottom: 20px;
+        }
+
+        .btn-login {
+            background-color: #8B6F42;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .btn-login:hover {
+            background-color: #6e4f2f;
+        }
+
+        .text-center a {
+            color: #8B6F42;
+            text-decoration: none;
+        }
+
+        .text-center a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Đăng Nhập</h2>
+    <form action="/dang-nhap" method="POST">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Mật khẩu</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" required>
+        </div>
+        <button type="submit" class="btn btn-login">Đăng Nhập</button>
+    </form>
+    <div class="text-center mt-3">
+        <a href="/quen-mat-khau">Quên mật khẩu?</a>
+    </div>
+</div>
+</body>
+</html>
