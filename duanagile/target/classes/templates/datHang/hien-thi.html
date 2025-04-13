@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #f8f9fa; }
+
+        .header, .menu-bar { background: white; }
+        .header {
+            display: flex; justify-content: center; align-items: center;
+            padding: 15px 30px; border-bottom: 2px solid #8B6F42; position: relative;
+        }
+
+        .search-bar {
+            display: flex; border: 1px solid #8B6F42; border-radius: 5px;
+            overflow: hidden; width: 50%; max-width: 400px;
+        }
+        .search-bar input { padding: 8px; border: none; flex: 1; font-size: 16px; }
+        .search-bar button { background: #8B6F42; color: white; border: none; padding: 8px 12px; cursor: pointer; }
+        .search-bar button:hover { background: #a97d52; }
+
+        .cart-icon {
+            position: absolute; right: 30px; font-size: 24px;
+            cursor: pointer; text-decoration: none; display: flex; align-items: center;
+        }
+
+        .cart-icon span {
+            position: absolute; top: -5px; right: -10px;
+            background: green; color: white; border-radius: 50%;
+            padding: 3px 8px; font-size: 14px;
+        }
+
+        .menu-bar {
+            background: #8B6F42;
+            padding: 10px; display: flex; justify-content: center; gap: 20px;
+        }
+
+        .menu-bar a {
+            color: white; text-decoration: none; font-size: 16px;
+            padding: 8px 12px;
+        }
+
+        .menu-bar a:hover {
+            background: rgba(255,255,255,0.2); border-radius: 5px;
+        }
+
+        .featured-products { text-align: center; padding: 20px; }
+
+        form.checkout-form {
+            max-width: 600px; margin: 30px auto; background: white;
+            padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        form .form-group {
+            margin-bottom: 15px; text-align: left;
+        }
+
+        form .form-group label {
+            display: block; font-weight: bold; margin-bottom: 5px;
+        }
+
+        form .form-group input,
+        form .form-group textarea {
+            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;
+        }
+
+        .checkout-buttons {
+            display: flex; justify-content: space-between;
+            gap: 10px; margin-top: 20px;
+        }
+
+        .checkout-buttons button {
+            flex: 1;
+            background-color: #28a745; color: white;
+            padding: 12px 20px; border: none; border-radius: 30px;
+            font-size: 16px; cursor: pointer;
+        }
+
+        .checkout-buttons button.transfer {
+            background-color: #007bff;
+        }
+
+        .checkout-buttons button:hover {
+            opacity: 0.9;
+        }
+
+        .contact-btn {
+            position: fixed; bottom: 20px; right: 20px;
+            background: green; color: white; padding: 12px 20px;
+            border-radius: 30px; cursor: pointer;
+            display: flex; align-items: center; gap: 8px;
+            text-decoration: none; font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .contact-btn:hover { background: darkgreen; }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <form class="search-bar" method="get" action="/san-pham/hien-thi">
+        <input type="text" name="keyword" placeholder="Nhập từ khóa tìm kiếm..." required>
+        <button type="submit">🔍</button>
+    </form>
+
+    <a href="/gio-hang/hien-thi" class="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span>0</span>
+    </a>
+</div>
+
+<!-- Menu -->
+<div class="menu-bar">
+    <a href="/menu/hien-thi">Trang chủ</a>
+    <a href="/gioi-thieu/hien-thi">Giới thiệu</a>
+    <a href="/san-pham/hien-thi">Sản phẩm</a>
+    <a href="/huong-dan-dat-hang/hien-thi">Hướng dẫn đặt hàng</a>
+    <a href="/kien-thuc/hien-thi">Kiến thức phong thủy</a>
+    <a href="/lien-he/hien-thi">Liên hệ</a>
+</div>
+
+<!-- Giỏ hàng -->
+<div class="featured-products">
+    <!-- Xóa bảng sản phẩm -->
+</div>
+
+<!-- Form đặt hàng -->
+<form class="checkout-form" method="post" action="/dat-hang/xu-ly">
+    <div class="form-group">
+        <label for="tenNguoiNhan">Tên người nhận</label>
+        <input type="text" id="tenNguoiNhan" name="tenNguoiNhan" required>
+    </div>
+
+    <div class="form-group">
+        <label for="soDienThoai">Số điện thoại</label>
+        <input type="tel" id="soDienThoai" name="soDienThoai" required>
+    </div>
+
+    <div class="form-group">
+        <label for="diaChi">Địa chỉ nhận hàng</label>
+        <textarea id="diaChi" name="diaChi" rows="3" required></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="ghiChu">Ghi chú (nếu có)</label>
+        <textarea id="ghiChu" name="ghiChu" rows="3" placeholder="Ví dụ: giao giờ hành chính, gọi trước khi giao..."></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Phương thức thanh toán:</label>
+        <label>
+            <input type="radio" name="phuongThuc" value="chuyen-khoan" required>
+            Thanh toán khi nhận hàng
+        </label>
+        <label>
+            <input type="radio" name="phuongThuc" value="tien-mat" required>
+            Chuyển khoản ngân hàng
+        </label>
+    </div>
+
+    <div class="checkout-buttons">
+        <button type="submit">
+            <i class="fas fa-check"></i> Xác nhận đơn hàng
+        </button>
+    </div>
+</form>
+
+<!-- Liên hệ -->
+<a href="/lienHe/hien-thi" class="contact-btn">
+    <i class="fas fa-comment-dots"></i> Liên hệ
+</a>
+
+</body>
+</html>

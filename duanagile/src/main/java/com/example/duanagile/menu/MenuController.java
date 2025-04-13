@@ -9,4 +9,6 @@ public class MenuController {
     public String hienThiMenu() {
         return "menu";
     }
+
+
 }

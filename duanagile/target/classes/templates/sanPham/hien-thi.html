@@ -170,6 +170,21 @@
                 padding: 10px;
             }
         }
+        .add-to-cart-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .add-to-cart-btn:hover {
+            background-color: #45a049;
+        }
+
     </style>
 </head>
 <body>
@@ -180,7 +195,7 @@
         <button type="submit">🔍</button>
     </form>
 
-    <a href="/gioHang/hien-thi" class="cart-icon">
+    <a href="/gio-hang/hien-thi" class="cart-icon">
         <i class="fas fa-shopping-cart"></i>
         <span>0</span>
     </a>
@@ -196,7 +211,7 @@
 </div>
 
 <div class="featured-products">
-    <h2>Danh sách sản phẩm</h2>
+
 
     <div class="product-grid">
         <th:block th:each="sanPham : ${danhSachSanPham}">
@@ -210,6 +225,11 @@
                     <p><strong>Kích thước:</strong> <span th:text="${sanPham.dimensions}"></span></p>
                     <p><strong>Chất liệu:</strong> <span th:text="${sanPham.material}"></span></p>
                 </div>
+                <form th:action="@{/gio-hang/them}" method="post" style="margin-top: 10px;">
+                    <input type="hidden" name="sanPhamId" th:value="${sanPham.id}" />
+                    <button type="submit" class="add-to-cart-btn">🛒 Thêm vào giỏ hàng</button>
+                </form>
+
             </div>
         </th:block>
     </div>

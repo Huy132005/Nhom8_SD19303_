@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản Lý</title>
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
         body { background-color: #f8f9fa; }
-
 
         .header {
             display: flex;
@@ -20,7 +19,6 @@
             border-bottom: 2px solid #8B6F42;
             position: relative;
         }
-
 
         .search-bar {
             display: flex;
@@ -57,10 +55,6 @@
             gap: 5px;
         }
 
-        .cart-icon img {
-            width: 30px;
-        }
-
         .cart-icon span {
             position: absolute;
             top: -5px;
@@ -71,7 +65,6 @@
             padding: 3px 8px;
             font-size: 14px;
         }
-
 
         .menu-bar {
             background: #8B6F42;
@@ -93,12 +86,58 @@
             border-radius: 5px;
         }
 
-
         .featured-products {
             text-align: center;
             padding: 20px;
         }
 
+        .cart-table {
+            padding: 0 30px 20px;
+        }
+
+        .cart-table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .cart-table th,
+        .cart-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .cart-table th {
+            background-color: #8B6F42;
+            color: white;
+        }
+
+        .cart-table img {
+            max-width: 80px;
+        }
+
+        .checkout-button {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .checkout-button a {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .checkout-button a:hover {
+            background-color: #218838;
+        }
 
         .contact-btn {
             position: fixed;
@@ -129,7 +168,7 @@
 </head>
 <body>
 
-
+<!-- Header -->
 <div class="header">
     <div class="search-bar">
         <input type="text" placeholder="Nhập từ khóa tìm kiếm...">
@@ -138,10 +177,11 @@
 
     <a href="/gioHang/hien-thi" class="cart-icon">
         <i class="fas fa-shopping-cart"></i>
-        <span>0</span>
+        <span th:text="${gioHang.size()}">0</span>
     </a>
 </div>
 
+<!-- Menu -->
 <div class="menu-bar">
     <a href="/menu/hien-thi">Trang chủ</a>
     <a href="/gioi-thieu/hien-thi">Giới thiệu</a>
@@ -151,11 +191,40 @@
     <a href="/lien-he/hien-thi">Liên hệ</a>
 </div>
 
+<!-- Giỏ hàng -->
 <div class="featured-products">
-    <h2>Giỏ hàng</h2>
+
+
+    <div class="cart-table">
+        <table>
+            <thead>
+            <tr>
+                <th>Hình ảnh</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item : ${gioHang}">
+                <td><img th:src="@{${item.hinhAnh}}" alt="Sản phẩm"></td>
+                <td th:text="${item.tenSanPham}">Tên sản phẩm</td>
+                <td th:text="${item.gia}">0</td>
+                <td th:text="${item.soLuong}">1</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Nút thanh toán -->
+    <div class="checkout-button">
+        <a href="/dat-hang/hien-thi">
+            <i class="fas fa-credit-card"></i> Thanh toán ngay
+        </a>
+    </div>
 </div>
 
-
+<!-- Liên hệ -->
 <a href="/lienHe/hien-thi" class="contact-btn">
     <i class="fas fa-comment-dots"></i> Liên hệ
 </a>

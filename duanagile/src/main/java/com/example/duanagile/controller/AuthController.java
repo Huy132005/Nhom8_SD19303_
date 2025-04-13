@@ -5,13 +5,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/Taikhoan")
 public class AuthController {
-    @GetMapping("/dang-nhap/hien-thi")
+    @GetMapping("/dang-nhap")
     public String showLoginForm() {
-        return "DangNhap/hien-thi";
+        return "DangNhap";
     }
-    @GetMapping("/dang-ky/hien-thi")
+    @GetMapping("/dang-ky")
     public String register() {
-        return "DangKy/hien-thi";
+        return "DangKy";
     }
 }
