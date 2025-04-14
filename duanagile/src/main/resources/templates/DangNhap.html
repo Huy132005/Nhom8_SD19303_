@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập - Đồ Gỗ Phong Thủy</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin-top: 100px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #ff7eb3;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .btn-login {
+            background-color: #ff7eb3;
+            color: white;
+            border-radius: 8px;
+            padding: 12px;
+            width: 100%;
+        }
+
+        .btn-login:hover {
+            background-color: #ff3b3f;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Đăng Nhập</h2>
+    <form action="/login" method="POST">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email của bạn" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Mật khẩu</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" required>
+        </div>
+        <button type="submit" class="btn btn-login">Đăng Nhập</button>
+    </form>
+    <div class="text-center mt-3">
+        <a href="/forgot-password" style="color: #ff7eb3;">Quên mật khẩu?</a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Đồ Gỗ Phong Thủy | Liên hệ: dongophongthuy@example.com</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

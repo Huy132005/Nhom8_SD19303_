@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển Khoản Ngân Hàng</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.0/build/qrcode.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8f9fa; padding: 20px; text-align: center; }
+        h1 { font-size: 30px; color: #8B6F42; }
+        p { font-size: 18px; color: #555; margin: 20px 0; }
+        .qr-code { margin-top: 20px; }
+        .account-info { font-size: 16px; color: #555; margin-top: 30px; }
+        .btn { background-color: #28a745; color: white; padding: 12px 30px; border: none; border-radius: 5px; cursor: pointer; }
+        .btn:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+
+<h1>Chuyển Khoản Ngân Hàng</h1>
+<p>Vui lòng quét mã QR dưới đây để thực hiện chuyển khoản vào tài khoản ngân hàng của chúng tôi.</p>
+
+<!-- Chỗ hiển thị mã QR -->
+<div class="qr-code">
+    <img id="qrcode-img" src="C:\Users\adim\Downloads\qr.jpg" alt="QR Code" />
+</div>
+
+<!-- Thông tin tài khoản ngân hàng -->
+<div class="account-info">
+    <p><strong>Tài khoản ngân hàng:</strong> 1030580179</p>
+    <p><strong>Ngân hàng:</strong> Vietcombank</p>
+    <p><strong>Chủ tài khoản:</strong> Nhóm 6</p>
+</div>
+
+<button class="btn" onclick="xacNhanThanhToan()">Xác nhận chuyển khoản thành công</button>
+
+<script>
+    // Tạo mã QR cho thông tin tài khoản ngân hàng
+    const qrCodeData = "BANK:1030580179,NAME:Vietcombank,OWNER:Nhóm 6";
+
+    // Tạo mã QR và hiển thị dưới dạng hình ảnh
+    QRCode.toDataURL(qrCodeData, { errorCorrectionLevel: 'H' }, function(error, url) {
+        if (error) {
+            console.error(error);
+        } else {
+            // Gán URL hình ảnh QR vào thẻ <img> với id="qrcode-img"
+            document.getElementById("qrcode-img").src = url;
+            console.log('Mã QR đã được tạo!');
+        }
+    });
+
+    // Xử lý xác nhận chuyển khoản
+    function xacNhanThanhToan() {
+        alert("Chúng tôi sẽ liên hệ lại sau! Cảm ơn bạn.");
+        window.location.href = "/dat-hang/xac-nhan"; // Chuyển hướng đến trang xác nhận
+    }
+</script>
+
+</body>
+</html>
